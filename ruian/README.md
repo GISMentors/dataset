@@ -17,3 +17,5 @@ Export do GeoPackage
 --------------------
 
         ./pg2ogr --dbname $DB --dsn /tmp/$DB.gpkg --format GPKG --o
+
+URL: http://geo102.fsv.cvut.cz/~landa/geodata/ruian/
