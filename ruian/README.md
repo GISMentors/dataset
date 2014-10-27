@@ -21,4 +21,4 @@ Export do GeoPackage
 Odkaz na předgenerovaná data
 ----------------------------
 
-* http://geo102.fsv.cvut.cz/~landa/geodata/ruian/
+* http://46.28.111.140/gismentors/skoleni/geodata/ruian/
