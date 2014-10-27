@@ -23,9 +23,3 @@ Odkaz na předgenerovaná data
 ----------------------------
 
 * http://46.28.111.140/gismentors/skoleni/geodata/ruian/
-
-Vytvoření GRASS lokace
-----------------------
-
-        grass70 -c EPSG:5514:3 /opt/grassdata/ruian
-        for layer in `v.in.ogr --q dsn=$GFILE -l`; do v.in.ogr dsn=$GFILE layer=$layer ; done
