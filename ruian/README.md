@@ -1,8 +1,8 @@
 Příprava dat RUIAN
-------------------
+==================
 
 Vytvoření geodatabáze na základě dat RUIAN
-==========================================
+------------------------------------------
 
         export DB=vfr_uksg
         
@@ -14,6 +14,6 @@ Vytvoření geodatabáze na základě dat RUIAN
         nohup ./vfr2pg --file test_suite/db_uksg.txt --dbname $DB >log.txt 2>log_err.txt &
 
 Export do GeoPackage
-====================
+--------------------
 
         ./pg2ogr --dbname $DB --dsn /tmp/$DB.gpkg --format GPKG --o
