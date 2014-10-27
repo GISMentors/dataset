@@ -1,7 +1,7 @@
-Příprava dat RUIAN
+Příprava dat RÚIAN
 ==================
 
-Vytvoření geodatabáze na základě dat RUIAN
+Vytvoření geodatabáze na základě dat RÚIAN
 ------------------------------------------
 
         export DB=vfr_uksg
