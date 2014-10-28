@@ -78,7 +78,8 @@ Import:
         v.proj loc=skoleni mapset=ruian in=stat_polygon
         g.region rast=tile1 vect=stat_polygon -a
         v.proj loc=skoleni mapset=ruian in=stat_polygon
-        r.out.gdal in=dmt out=~/public_html/geodata/eu-dem/dmt.tif
+               
+        r.out.gdal in=dmt out=~/public_html/geodata/eu-dem/dmt.tif type=UInt16 --o -f
         
 Transformace do lokace 'skoleni':
 
