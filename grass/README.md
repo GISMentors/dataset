@@ -69,17 +69,21 @@ EU-DEM
 ======
 
 Import:
+
         grass70 -c EPSG:3035 /opt/grassdata/eu-dem
         
         r.in.gdal input=/vsizip//work/geodata/eu-dem/EUD_CP-DEMS_4500025000-AA.zip/EUD_CP-DEMS_4500025000-AA.tif out=tile1
         r.in.gdal input=/vsizip//work/geodata/eu-dem/EUD_CP-DEMS_4500035000-AA.zip/EUD_CP-DEMS_4500035000-AA.tif out=tile2
 
         v.proj loc=skoleni mapset=ruian in=stat_polygon
+        g.region rast=tile1 vect=stat_polygon -a
+        v.proj loc=skoleni mapset=ruian in=stat_polygon
+        r.out.gdal in=dmt out=~/public_html/geodata/eu-dem/dmt.tif
         
 Transformace do lokace 'skoleni':
 
         grass70 /opt/grassdata/skoleni
-        
+       
 
 OSM
 ===
