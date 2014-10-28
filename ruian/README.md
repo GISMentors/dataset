@@ -11,7 +11,7 @@ Vytvoření geodatabáze na základě dat RÚIAN
         git clone git@github.com:landam/ogr-vfr.git
         cd ogr-vfr
         
-        nohup ./vfr2pg --file test_suite/db_uksg.txt --dbname $DB >log.txt 2>log_err.txt &
+        nohup ./vfr2pg -d --file test_suite/db_uksg.txt --dbname $DB >log.txt 2>log_err.txt &
 
 Export do GeoPackage
 --------------------
