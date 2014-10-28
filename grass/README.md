@@ -26,12 +26,12 @@ Vyčištění topologických chyb:
         g.rename vect=x,$map --o
 
         export map=momc_originalnihranice
-        pass
+        # ?
 
         export map=zsj_originalnihranice
         v.clean input=$map output=x type=area tool=rmarea thresh=19000 --o
         g.rename vect=x,$map --o
-        TODO: nektery ZSJ chybi v RUIANU (zjistit proc)
+        TODO: nektery ZSJ chybi v RUIANU (zjistit proc...)
 
         export map=okresy_generalizovanehranice
         v.clean input=$map output=x type=area tool=rmarea thresh=200000 --o
@@ -60,13 +60,26 @@ Test:
         
 Přejmenování vrstev:
 
-        for map in `g.list vect pat='*_*hranice'` ; do g.rename vect=$map,${map%%_*}_polygony ; done
-        for map in `g.list vect pat='*_*bod'` ; do g.rename vect=$map,${map%%_*}_body ; done
+        for map in `g.list vect pat='*_*hranice'` ; do g.rename vect=$map,${map%%_*}_polygon ; done
+        for map in `g.list vect pat='*_*bod'` ; do g.rename vect=$map,${map%%_*}_bod ; done
+        g.rename vect=staty_bod,stat_bod
+        g.rename vect=staty_polygon,stat_polygon
 
 EU-DEM
 ======
 
-        g.mapset PERMANENT
+Import:
+        grass70 -c EPSG:3035 /opt/grassdata/eu-dem
+        
+        r.in.gdal input=/vsizip//work/geodata/eu-dem/EUD_CP-DEMS_4500025000-AA.zip/EUD_CP-DEMS_4500025000-AA.tif out=tile1
+        r.in.gdal input=/vsizip//work/geodata/eu-dem/EUD_CP-DEMS_4500035000-AA.zip/EUD_CP-DEMS_4500035000-AA.tif out=tile2
+
+        v.proj loc=skoleni mapset=ruian in=stat_polygon
+        
+Transformace do lokace 'skoleni':
+
+        grass70 /opt/grassdata/skoleni
+        
 
 OSM
 ===
