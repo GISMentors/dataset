@@ -64,8 +64,6 @@ Test topologie:
         
 Přejmenování vrstev:
 
-        g.mapset ruain
-
         for map in `g.list vect pat='*_*hranice'` ; do g.rename vect=$map,${map%%_*}_polygon ; done
         for map in `g.list vect pat='*_*bod'` ; do g.rename vect=$map,${map%%_*}_bod ; done
         g.rename vect=staty_bod,stat_bod
@@ -78,8 +76,13 @@ Přejmenování vrstev:
 Import:
 
         g.mapset ruian_praha
+        for layer in `v.in.ogr --q dsn=$GFILE -l`; do v.in.ogr dsn=$GFILE layer=$layer snap=1 --o; done
+         
+Přejmenování vrstev:
+
         for map in `g.list vect pat='*_*hranice'` ; do g.rename vect=$map,${map%%_*}_polygon ; done
         for map in `g.list vect pat='*_*bod'` ; do g.rename vect=$map,${map%%_*}_bod ; done
+        g.rename vect=ulice_definicnicara,ulice
 
 EU-DEM
 ======
