@@ -4,7 +4,7 @@ Příprava dat RÚIAN
 Vytvoření geodatabáze na základě dat RÚIAN
 ------------------------------------------
 
-        export DB=vfr
+        export DB=ruian
         
         createdb $DB || (dropdb $DB && createdb $DB) && psql $DB -c"create extension postgis"
         

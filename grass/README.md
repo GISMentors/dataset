@@ -12,7 +12,10 @@ RÚIAN
 
 Import:
 
-        g.mapset -c ruain
+        g.mapset -c ruian
+        
+        # viz ruian/README.md
+        export GFILE=/tmp/$DB.gpkg
         for layer in `v.in.ogr --q dsn=$GFILE -l`; do v.in.ogr dsn=$GFILE layer=$layer snap=1 --o; done
 
 Vyčištění topologických chyb:
