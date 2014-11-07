@@ -6,7 +6,7 @@ Vytvoření GRASS lokace
 RÚIAN
 =====
 
-### CR
+### ČR
 
         export GFILE=ruian_cr.gpkg
 
@@ -99,8 +99,12 @@ Import:
         
 Transformace do lokace 'skoleni':
 
-        grass70 /opt/grassdata/skoleni
-       
+        grass70 /opt/grassdata/skoleni/PERMANENT
+        
+        g.region n=-846560.70610342 s=-1332801.69195591 w=-998746.18733621 e=-345691.15629692 res=25
+        r.mask vector=stat_polygon@ruian
+        r.proj input=dmt location=eu-dem mapset=PERMANENT method=bilinear --overwrite
+        r.mask -r
 
 OSM
 ===
