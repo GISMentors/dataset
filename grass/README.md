@@ -6,12 +6,13 @@ Vytvoření GRASS lokace
 RÚIAN
 =====
 
+### CR
+
+        export GFILE=ruian_cr.gpkg
+
 Import:
 
         g.mapset -c ruain
-        
-        # viz ruian/README.md
-        export GFILE=/tmp/$DB.gpkg
         for layer in `v.in.ogr --q dsn=$GFILE -l`; do v.in.ogr dsn=$GFILE layer=$layer snap=1 --o; done
 
 Vyčištění topologických chyb:
@@ -45,7 +46,7 @@ Vyčištění topologických chyb:
         v.clean input=$map output=x type=area tool=rmarea thresh=13900000 --o
         g.rename vect=x,$map --o
 
-Test:
+Test topologie:
         
         export map=obce_generalizovanehranice
 
@@ -60,10 +61,22 @@ Test:
         
 Přejmenování vrstev:
 
+        g.mapset ruain
+
         for map in `g.list vect pat='*_*hranice'` ; do g.rename vect=$map,${map%%_*}_polygon ; done
         for map in `g.list vect pat='*_*bod'` ; do g.rename vect=$map,${map%%_*}_bod ; done
         g.rename vect=staty_bod,stat_bod
         g.rename vect=staty_polygon,stat_polygon
+
+### PRAHA:
+
+        export GFILE=ruian_praha.gpkg
+
+Import:
+
+        g.mapset ruian_praha
+        for map in `g.list vect pat='*_*hranice'` ; do g.rename vect=$map,${map%%_*}_polygon ; done
+        for map in `g.list vect pat='*_*bod'` ; do g.rename vect=$map,${map%%_*}_bod ; done
 
 EU-DEM
 ======

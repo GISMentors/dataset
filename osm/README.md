@@ -16,7 +16,7 @@ Vytvoření geodatabáze na základě dat OSM
 Přidání vrstvy 'stat' z RÚIAN
 -----------------------------
 
-ogr2ogr -f PostgreSQL "PG:dbname=$DB active_schema=$SCHEMA" vfr_uskg.gpkg staty_generalizovanehranice
+        ogr2ogr -f PostgreSQL "PG:dbname=$DB active_schema=$SCHEMA" ruan_cr.gpkg staty_generalizovanehranice
 
 Export tématických vrstev do GeoPackage
 ---------------------------------------
