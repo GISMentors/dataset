@@ -8,7 +8,7 @@ RÚIAN
 
 Import:
 
-        g.mapset -c ruain
+        g.mapset -c ruian
         
         # viz ruian/README.md
         export GFILE=/tmp/$DB.gpkg
