@@ -4,6 +4,8 @@ FILE=/tmp/osm.gpkg
 DB=pgis_osm
 SCHEMA=gismentors
 
-ogr2ogr -f GPKG  "PG:dbname=$DB" $SCHEMA.vodni_toky
+rm -rf $FILE
+ogr2ogr -f GPKG $FILE "PG:dbname=$DB active_schema=$SCHEMA" silnice -overwrite
+ogr2ogr -f GPKG $FILE "PG:dbname=$DB active_schema=$SCHEMA" zeleznice -overwrite
 
 exit 0
