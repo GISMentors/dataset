@@ -1,0 +1,2 @@
+pridat gpx
+pridat konfigurak na wms/wmts pro qgis
