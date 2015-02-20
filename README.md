@@ -19,4 +19,4 @@ Zdroje
 
 * RUIAN, http://freegis.fsv.cvut.cz/gwiki/RUIAN
 * OSM, http://freegis.fsv.cvut.cz/gwiki/OSM
-* Dibabod, http://www.dibavod.cz/
+* Dibavod, http://www.dibavod.cz/
