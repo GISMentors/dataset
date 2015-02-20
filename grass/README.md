@@ -1,7 +1,7 @@
 Vytvoření GRASS lokace
 ----------------------
 
-        grass70 -c EPSG:5514:3 /opt/grassdata/skoleni
+        grass70 -c EPSG:5514:3 /opt/grassdata/gismentors
 
 RÚIAN
 =====
@@ -94,15 +94,15 @@ Import:
         r.in.gdal input=/vsizip//work/geodata/eu-dem/EUD_CP-DEMS_4500025000-AA.zip/EUD_CP-DEMS_4500025000-AA.tif out=tile1
         r.in.gdal input=/vsizip//work/geodata/eu-dem/EUD_CP-DEMS_4500035000-AA.zip/EUD_CP-DEMS_4500035000-AA.tif out=tile2
 
-        v.proj loc=skoleni mapset=ruian in=stat_polygon
+        v.proj loc=gismentors mapset=ruian in=stat_polygon
         g.region rast=tile1 vect=stat_polygon -a
-        v.proj loc=skoleni mapset=ruian in=stat_polygon
+        v.proj loc=gismentors mapset=ruian in=stat_polygon
                
         r.out.gdal in=dmt out=~/public_html/geodata/eu-dem/dmt.tif type=UInt16 --o -f
         
-Transformace do lokace 'skoleni':
+Transformace do lokace 'gismentors':
 
-        grass70 /opt/grassdata/skoleni/PERMANENT
+        grass70 /opt/grassdata/gismentors/PERMANENT
         
         g.region n=-846560.70610342 s=-1332801.69195591 w=-998746.18733621 e=-345691.15629692 res=25
         r.mask vector=stat_polygon@ruian
