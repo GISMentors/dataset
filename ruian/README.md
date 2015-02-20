@@ -30,4 +30,4 @@ Export do GeoPackage
 Odkaz na předgenerovaná data
 ----------------------------
 
-* http://46.28.111.140/gismentors/skoleni/geodata/ruian/
+* http://training.gismentors.eu/gismentors/skoleni/geodata/ruian/
