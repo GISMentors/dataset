@@ -57,6 +57,7 @@ Přejmenování sloupců
 Začlenění UIR
 -------------
 
+* https://www.czso.cz/csu/rso/prohlizec_uir_zsj
 * https://www.czso.cz/documents/11300/18173069/uir131dc.zip/a00193e2-1648-4d92-b16a-f90eeb3646d1
 
         SHAPE_ENCODING=cp852 ogr2ogr -f PostgreSQL PG:dbname=gismentors . -lco 'SCHEMA=uir_zsj'
