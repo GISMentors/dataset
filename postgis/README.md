@@ -19,7 +19,7 @@ Vytvoření databáze PostGIS
 
 4) Import dat CSU
 
-   TODO
+          ./csu/davka_csu.sh
 
 Export
 ------
