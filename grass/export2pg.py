@@ -57,7 +57,8 @@ def export_vect(mapset, db, epsg):
         #        options="srid=5514", overwrite=True)
         Module('v.out.ogr', input='{}@{}'.format(vect, mapset), output="PG:dbname={}".format(db),
                output_layer='%s.%s' % (mapset, vect),
-               overwrite=True, format='PostgreSQL', lco='GEOMETRY_NAME=geom')
+               overwrite=True, format='PostgreSQL', lco='GEOMETRY_NAME=geom',
+               flags='m')
         
 if __name__ == "__main__":
     # output - PostGIS
