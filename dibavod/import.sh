@@ -1,6 +1,13 @@
 #!/bin/sh
 
-cd /tmp
+DIR=/tmp/dibavod
+DB=gismentors
+SCHEMA=dibavod
+
+#rm -rf /tmp/dibavod
+psql $DB -c "drop schema $SCHEMA cascade; create schema $SCHEMA"
+mkdir -p $DIR
+cd $DIR
 
 # stazeni dat
 download() {
@@ -8,17 +15,28 @@ download() {
 }
 
 process() {
-    download $1 $2
+    #download $1 $2
+    #unzip_shp $2
+    to_pg $2 $3
 }
 
-process 1414 vodni_toky
-process 1416 vodni_nadze
-process 1418 povodi_iv
-process 1419 povodi_iii
-process 1420 povodi_ii
-process 1421 povodi_i
+unzip_shp() {
+    echo "unziping ${1}.zip..."
+    unzip ${1}.zip
+}
 
-process 1435 zaplava_5
-process 1436 zaplava_20
-process 1437 zaplava_100
-process 3030 zaplava_max
+to_pg() {
+    shp2pgsql -s 5514 -g geom -D -I -W cp1250 $1.shp $SCHEMA.$2 | psql $DB
+}
+
+process 1414 A03_Vodni_tok_HU vodni_toky
+process 1416 A05_Vodni_nadrze vodni_nadrze
+process 1418 A07_Povodi_IV povodi_iv
+process 1419 A08_Povodi_III povodi_iii
+process 1420 A09_Povodi_II povodi_ii
+process 1421 A10_Povodi_I povodi_i
+
+process 1435 D01_ZaplUzemi5Vody zaplava_5
+process 1436 D02_ZaplUzemi20Vody zaplava_20
+process 1437 D03_ZaplUzemi100Vody zaplava_100
+process 3030 D04_ZaplUzemiNejvPrirozPovodne zaplava_max
