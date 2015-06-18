@@ -29,7 +29,7 @@ to_pg() {
     shp2pgsql -s 5514 -g geom -D -I -W cp1250 $1.shp $SCHEMA.$2 | psql $DB
 }
 
-process 1414 A03_Vodni_tok_HU vodni_toky
+process 1412 A01_Vodni_tok_CEVT vodni_toky
 process 1416 A05_Vodni_nadrze vodni_nadrze
 process 1418 A07_Povodi_IV povodi_iv
 process 1419 A08_Povodi_III povodi_iii
