@@ -4,8 +4,9 @@ DIR=/tmp/dibavod
 DB=gismentors
 SCHEMA=dibavod
 
-#rm -rf /tmp/dibavod
-psql $DB -c "drop schema $SCHEMA cascade; create schema $SCHEMA"
+rm -rf /tmp/dibavod
+psql $DB -c "drop schema $SCHEMA cascade"
+psql $DB -c "create schema $SCHEMA"
 mkdir -p $DIR
 cd $DIR
 
@@ -15,8 +16,8 @@ download() {
 }
 
 process() {
-    #download $1 $2
-    #unzip_shp $2
+    download $1 $2
+    unzip_shp $2
     to_pg $2 $3
 }
 
