@@ -1,8 +1,9 @@
+#!/bin/sh
 
 #vytvor db
 createdb gismentors;
 
-#instaluj postgis musi provest superuser
+#instaluj postgis (musi provest superuser)
 psql -c "CREATE EXTENSION postgis" gismentors;
 
 #stahni definici S-JTSK s transformaci CUZK pro CR, chyba max 1m
@@ -21,12 +22,12 @@ wget -xO gismentors.dump >& /dev/null
 pg_restore gismentors.dump | psql gismentors
 
 #smaz dump
-#ydroje optimalizace
+rm -f gismentors.dump
 
-#http://pgtune.leopard.in.ua/
+#zdroje optimalizace
+# - http://pgtune.leopard.in.ua/
+# - http://sourcefreedom.com/tuning-postgresql-9-0-with-pgtune/
+# - http://www.linuxexpres.cz/praxe/optimalizace-postgresql
+# - http://postgres.cz/wiki/Desatero
 
-#http://sourcefreedom.com/tuning-postgresql-9-0-with-pgtune/
-
-#http://www.linuxexpres.cz/praxe/optimalizace-postgresql
-
-#http://postgres.cz/wiki/Desatero
+exit 0
