@@ -7,16 +7,16 @@ createdb gismentors;
 psql -c "CREATE EXTENSION postgis" gismentors;
 
 #stahni definici S-JTSK s transformaci CUZK pro CR, chyba max 1m
-wget http://epsg.io/5514-1623.sql >& /dev/null
+wget http://epsg.io/5514-1623.sql > /dev/null
 
 #nahraj 5514 do db
 psql -f 5514-1623.sql gismentors
 
 #smaz
-wget http://training.gismentors.eu/geodata/postgis/gismentors.dump >& /dev/null
+wget http://training.gismentors.eu/geodata/postgis/gismentors.dump > /dev/null
 
 #stahni dump databaze
-wget -xO gismentors.dump >& /dev/null
+wget -xO gismentors.dump > /dev/null
 
 #nahraj do db
 pg_restore gismentors.dump | psql gismentors
