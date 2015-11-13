@@ -24,6 +24,7 @@ rm 5514-1623.sql
 ../csu/import.sh
 
 #vytvořit dump
-pg_dump -Fp -Z9 -O -x -N public -f gismentors.dump gismentors
+pg_dump -Fc -b -v -O -x -N public -f gismentors.dump gismentors
+###pg_dump -Fp -Z9 -O -x -N public -f gismentors.dump gismentors
 
 exit 0
