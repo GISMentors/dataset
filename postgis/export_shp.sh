@@ -4,7 +4,7 @@ DB=gismentors
 DST=/tmp
 DIR=$DST/gismentors_shp
 
-layers=`psql $DB -tA -F'.' -c"select f_table_schema,f_table_name from geometry_columns"`
+layers=`sudo psql -U postgres $DB -tA -F'.' -c"select f_table_schema,f_table_name from geometry_columns"`
 
 rm -rf $DIR && mkdir $DIR
 for layer in $layers; do
@@ -16,7 +16,7 @@ for layer in $layers; do
         cd $schema
     fi
     echo "Exporting $schema.$table..."
-    ogr2ogr -f 'ESRI Shapefile' ${table}.shp PG:dbname=$DB ${schema}.$table
+    sudo ogr2ogr -f 'ESRI Shapefile' ${table}.shp "PG:dbname=$DB user=postgres" ${schema}.$table
 done
 
 exit 0
