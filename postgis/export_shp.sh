@@ -6,6 +6,8 @@ DIR=$DST/gismentors_shp
 
 layers=`sudo psql -U postgres $DB -tA -F'.' -c"select f_table_schema,f_table_name from geometry_columns"`
 
+export SHAPE_ENCODING=utf-8
+
 rm -rf $DIR && mkdir $DIR
 for layer in $layers; do
     schema=`echo $layer | cut -d'.' -f1`
