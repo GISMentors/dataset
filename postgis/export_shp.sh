@@ -6,8 +6,6 @@ DIR=$DST/gismentors_shp
 
 layers=`sudo psql -U postgres $DB -tA -F'.' -c"select f_table_schema,f_table_name from geometry_columns"`
 
-export SHAPE_ENCODING=utf-8
-
 rm -rf $DIR && mkdir $DIR
 for layer in $layers; do
     schema=`echo $layer | cut -d'.' -f1`
@@ -18,7 +16,7 @@ for layer in $layers; do
         cd $schema
     fi
     echo "Exporting $schema.$table..."
-    sudo ogr2ogr -f 'ESRI Shapefile' ${table}.shp "PG:dbname=$DB user=postgres" ${schema}.$table
+    sudo ogr2ogr -f 'ESRI Shapefile' -lco 'ENCODING=UTF-8' ${table}.shp "PG:dbname=$DB user=postgres" ${schema}.$table
 done
 
 exit 0
