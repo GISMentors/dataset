@@ -19,7 +19,7 @@ process() {
 
 unzip_shp() {
     echo "unziping ${1}.zip..."
-    unzip ${1}.zip
+    unzip -o ${1}.zip
     rm ${1}.zip
 }
 

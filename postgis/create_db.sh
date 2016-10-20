@@ -14,11 +14,13 @@ psql -c "CREATE EXTENSION postgis_topology" gismentors
 ../ruian/import.sh
 
 # import dat z DIBAVOD
+../dibavod/download.sh
 ../dibavod/import.sh
 
 # import dat z CSU
 ../csu/import.sh
 
+exit 0
 # import jizera
 wget http://training.gismentors.eu/geodata/postgis/jizera.sql
 psql gismentors -f jizera.sql 
