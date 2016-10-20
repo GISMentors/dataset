@@ -10,8 +10,8 @@ fi
 wget http://epsg.io/5514-1623.sql > /dev/null
 
 #nahraj 5514 do db
-psql -U postgres $DB -c "delete from spatial_ref_sys where srid = 5514"
-psql -U postgres $DB -f 5514-1623.sql
+psql $DB -c "delete from spatial_ref_sys where srid = 5514"
+psql $DB -f 5514-1623.sql
 rm 5514-1623.sql
 
 exit 0

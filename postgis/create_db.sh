@@ -1,5 +1,8 @@
 #!/bin/sh
 
+SCRIPT=`realpath $0`
+SCRIPT_PATH=`dirname $SCRIPT`
+
 # vytvor db
 createdb gismentors
 
@@ -8,17 +11,17 @@ psql -c "CREATE EXTENSION postgis" gismentors
 psql -c "CREATE EXTENSION postgis_topology" gismentors
 
 # stahni definici S-JTSK s transformaci CUZK pro CR, chyba max 1m
-./epsg-5514.sh
+${SCRIPT_PATH}/epsg-5514.sh
 
 # import dat z RUIAN
-../ruian/import.sh
+${SCRIPT_PATH}/../ruian/import.sh
 
 # import dat z DIBAVOD
-../dibavod/download.sh
-../dibavod/import.sh
+${SCRIPT_PATH}/../dibavod/download.sh
+${SCRIPT_PATH}/../dibavod/import.sh
 
 # import dat z CSU
-../csu/import.sh
+${SCRIPT_PATH}/../csu/import.sh
 
 exit 0
 # import jizera
