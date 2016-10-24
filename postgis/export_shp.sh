@@ -1,8 +1,12 @@
 #!/bin/sh
 
 DB=gismentors
-DST=/tmp
-DIR=$DST/gismentors_shp
+
+if [ -z "$1" ]; then
+    DIR="$1"
+else
+    DIR=/tmp/gismentors_shp
+fi
 
 layers=`sudo psql -U postgres $DB -tA -F'.' -c"select f_table_schema,f_table_name from geometry_columns"`
 
