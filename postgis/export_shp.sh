@@ -24,7 +24,7 @@ for layer in $layers; do
         cd $schema
     fi
     echo "Exporting $schema.$table..."
-    sudo ogr2ogr -f 'ESRI Shapefile' -lco 'ENCODING=UTF-8,RESIZE=YES' ${table}.shp "PG:dbname=$DB user=postgres" ${schema}.$table
+    sudo ogr2ogr -f 'ESRI Shapefile' -lco 'ENCODING=UTF-8' -lco 'RESIZE=YES' ${table}.shp "PG:dbname=$DB user=postgres" ${schema}.$table
     sudo cp $SCRIPT_PATH/epsg-5514.qpj ${table}.qpj
 done
 
