@@ -8,6 +8,9 @@ else
     git pull
 fi
 
+export DATA_DIR=/tmp
+export LOG_DIR=/tmp
+
 ### import dat do schematu ruian
 ./gdal-vfr/vfr2pg --type ST_UKSG --dbname $DB --schema ruian --geom GeneralizovaneHranice
 
