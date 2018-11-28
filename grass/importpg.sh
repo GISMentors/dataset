@@ -15,7 +15,7 @@ for layer in $layers; do
         db.connect -d
     fi
     echo "Importing <$schema.$table>..."
-    v.in.ogr input="PG:dbname=$DB" layer=${schema}.${table} output=$table --o --q
+    v.import input="PG:dbname=$DB" layer=${schema}.${table} output=$table --o --q snap=0.01
 done
 
 exit 0
