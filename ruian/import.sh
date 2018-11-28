@@ -2,6 +2,9 @@
 
 export DB=gismentors
 
+SCRIPT=`realpath $0`
+SCRIPT_PATH=`dirname $SCRIPT`
+
 if [ ! -d gdal-vfr ] ; then
     git clone https://github.com/ctu-osgeorel/gdal-vfr.git
 else
@@ -19,5 +22,4 @@ export LOG_DIR=/tmp
 
 ### prejmenovani atributu
 # cat vfr.txt | cut -d '|' -f2,3,4 | sed 's/ \+//g' |  awk -F'|' '{printf "alter table "$1"."$2" rename "$3" to geom;\n"}'
-psql $DB -f rename.sql
-
+psql $DB -f ${SCRIPT_PATH}/rename.sql
