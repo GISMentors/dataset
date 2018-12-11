@@ -11,7 +11,7 @@ else
     DIR=/tmp/gismentors_gpkg
 fi
 
-layers=`sudo psql -U postgres psql $DB -tA -F'.' -c"select f_table_schema,f_table_name from geometry_columns"`
+layers=`sudo psql -U postgres $DB -tA -F'.' -c"select f_table_schema,f_table_name from geometry_columns"`
 
 rm -rf $DIR && mkdir $DIR
 
