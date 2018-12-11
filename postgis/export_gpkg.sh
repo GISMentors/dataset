@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 DB=gismentors
 
 SCRIPT=`realpath $0`
@@ -19,7 +21,7 @@ for layer in $layers; do
     schema=`echo $layer | cut -d'.' -f1`
     table=`echo $layer | cut -d'.' -f2`
     echo "Exporting $schema.$table..."
-    sudo ogr2ogr -append -f 'GPKG' $DIR/${schema}.gpkg -nln $table "PG:dbname=$DB" ${schema}.$table
+    sudo ogr2ogr -append -f 'GPKG' $DIR/${schema}.gpkg -nln $table "PG:dbname=$DB user=postgres" ${schema}.$table
 done
 
 exit 0

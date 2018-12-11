@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 DB=gismentors
 
 SCRIPT=`realpath $0`
