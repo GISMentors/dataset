@@ -1,4 +1,6 @@
-#!/bin/sh -e
+#!/bin/sh
+
+set -e
 
 SCRIPT=`realpath $0`
 SCRIPT_PATH=`dirname $SCRIPT`
@@ -22,6 +24,10 @@ ${SCRIPT_PATH}/../dibavod/import.sh
 
 # import dat z CSU
 ${SCRIPT_PATH}/../csu/import.sh
+
+# import dat z OSM
+${SCRIPT_PATH}/../osm/download.sh
+${SCRIPT_PATH}/../osm/import.sh
 
 # import jizera
 wget http://training.gismentors.eu/geodata/postgis/jizera.sql

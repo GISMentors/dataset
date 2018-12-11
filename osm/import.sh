@@ -1,12 +1,19 @@
 #!/bin/sh
 
+set -e
+
 DB=gismentors
 
-# osm2pgsql -d $DB -p osm -E 3857 -C 8000 czech-republic-latest.osm.bz2
+SCRIPT=`realpath $0`
+SCRIPT_PATH=`dirname $SCRIPT`
 
-psql $DB -f pozarni_stanice.sql
-psql $DB -f silnice.sql
-psql $DB -f zeleznice.sql
-psql $DB -f cleanup.sql
+osm2pgsql -d $DB -p osm -E 3857 -C 8000 /tmp/czech-republic-latest.osm.bz2
+
+psql $DB -f ${SCRIPT_PATH}/pozarni_stanice.sql
+psql $DB -f ${SCRIPT_PATH}/silnice.sql
+psql $DB -f ${SCRIPT_PATH}/zeleznice.sql
+psql $DB -f ${SCRIPT_PATH}/cleanup.sql
+
+rm /tmp/czech-republic-latest.osm.bz2
 
 exit 0
