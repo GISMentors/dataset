@@ -29,6 +29,10 @@ ${SCRIPT_PATH}/../csu/import.sh
 ${SCRIPT_PATH}/../osm/download.sh
 ${SCRIPT_PATH}/../osm/import.sh
 
+# import dat z AOPK
+${SCRIPT_PATH}/../aopk/download.sh
+${SCRIPT_PATH}/../aopk/import.sh
+
 # import jizera
 wget http://training.gismentors.eu/geodata/postgis/jizera.sql
 psql gismentors -f jizera.sql 
