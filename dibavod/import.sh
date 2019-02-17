@@ -1,10 +1,12 @@
 #!/bin/sh
 
+set -e
+
 DIR=/tmp/dibavod
 DB=gismentors
 SCHEMA=dibavod
 
-psql $DB -c "drop schema $SCHEMA cascade"
+psql $DB -c "drop schema if exists $SCHEMA cascade"
 psql $DB -c "create schema $SCHEMA"
 
 process() {

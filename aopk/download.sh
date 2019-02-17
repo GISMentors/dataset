@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 DIR=/tmp/aopk
 
 rm -rf /tmp/aopk

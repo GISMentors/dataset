@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 DIR=/tmp/dibavod
 
 rm -rf /tmp/dibavod

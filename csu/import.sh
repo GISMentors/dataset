@@ -1,4 +1,8 @@
+#!/bin/sh
+
 #https://www.czso.cz/csu/czso/otevrena_data_pro_vysledky_scitani_lidu_domu_a_bytu_2011_-sldb_2011-
+
+set -e
 
 db=gismentors
 schema=csu_sldb
