@@ -14,7 +14,9 @@ process() {
 }
 
 to_pg() {
-    shp2pgsql -s 5514 -g geom -D -I $1.shp $SCHEMA.$1 | psql $DB
+    # shp2pgsql -s 5514 -g geom -D -I $1.shp $SCHEMA.$1 | psql $DB
+    ogr2ogr -f PostgreSQL -nln $SCHEMA.$1 -t_srs EPSG:5514 \
+            -nlt PROMOTE_TO_MULTI -lco precision=NO PG:dbname=$DB $1.shp
 }
 
 cd $DIR
