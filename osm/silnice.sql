@@ -21,4 +21,4 @@ where highway = 'tertiary';
 
 create index on osm.silnice using gist (geom);
 
-select UpdateGeometrySRID('osm', 'silnice', 'geom', 5514);
+alter table osm.silnice alter column geom type geometry(linestring, 5514);

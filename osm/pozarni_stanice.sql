@@ -9,4 +9,4 @@ alter table osm.pozarni_stanice add primary key (osm_id);
 
 create index on osm.pozarni_stanice using gist (geom);
 
-select UpdateGeometrySRID('osm', 'pozarni_stanice', 'geom', 5514);
+alter table osm.pozarni_stanice alter column geom type geometry(point, 5514);

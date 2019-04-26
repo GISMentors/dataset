@@ -9,4 +9,4 @@ alter table osm.zeleznice add primary key (osm_id);
 
 create index on osm.zeleznice using gist (geom);
 
-select UpdateGeometrySRID('osm', 'zeleznice', 'geom', 5514);
+alter table osm.zeleznice alter column geom type geometry(linestring, 5514);
