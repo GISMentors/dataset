@@ -8,6 +8,13 @@ Input data:
 ├── eu_dem_v11_E40N30.TIF
 ```
 
+Output data:
+
+```
+/mnt/repository/eu-dem/
+├── dmt100.tif
+```
+
 ## 1. Process input data
 
 ```
