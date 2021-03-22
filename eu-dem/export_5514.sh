@@ -13,6 +13,6 @@ g.region res=100 -a
 r.mask vector=cr
 r.resamp.interp input=dtm output=dtm100 method=bilinea
 r.colors map=dtm100 color=elevation
-r.out.gdal input=dtm100 output=/mnt/repository/eu-dem/dmt100.tif type=UInt16 -f
+r.out.gdal --overwrite input=dtm100 output=/mnt/repository/eu-dem/dmt100.tif type=UInt16 -f -c # no color table
 
 exit 0
